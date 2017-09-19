@@ -44,6 +44,7 @@
       
 <div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
+	</header>		
 	<header id="header" class="inner">
 		<a href="" class="profilepic">
 			<img src="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/me/avatar.jpg" class="js-avatar">
@@ -75,6 +76,7 @@
     			
             
 		</nav>
+
 		<nav class="header-nav">
 			<div class="social">
 				
@@ -82,7 +84,6 @@
 		        
 			</div>
 		</nav>
-	</header>		
 </div>
 
     </div>
@@ -150,7 +151,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/19/webpack记录/">webpack记录</a>
+      <a class="article-title" href="/2017/09/19/webpack记录/">webpack</a>
     </h1>
   
 
@@ -163,7 +164,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+        <p><img src="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/webpack/webpack.png" alt="Alt text" title="webpack"></p>
+<h2 id="生产环境搭建"><a href="#生产环境搭建" class="headerlink" title="生产环境搭建"></a>生产环境搭建</h2><blockquote>
+<p>根据生产环境与开发环境的不同用途，我们需要作出不同的webpack配置。生产环境我们希望得到不缺失功能但体积更小的文件：<strong>bundle、sourcemap</strong> 等。 由于遵循逻辑分离，通常生产环境与开发环境编写彼此独立的配置</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/webpack/config1.png" alt="config" title="webpackconfig"></p>
+<p>如上图我们可以把通用配置放到<strong>webpack.common.js</strong>文件，再根据不同点去编写webpack.dev.js和webpack.prod.js。详见<a href="https://github.com/BeGoodBOY/webpack-demo/tree/master/webpack-env" target="_blank" rel="external">案例</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">const path = require(<span class="string">'path'</span>);</div><div class="line">const CleanWebpackPlugin = require(<span class="string">'clean-webpack-plugin'</span>);</div><div class="line">const HtmlWebpackPlugin = require(<span class="string">'html-webpack-plugin'</span>);</div><div class="line"></div><div class="line">module.exports = &#123;</div><div class="line">	entry: &#123;</div><div class="line">		app: <span class="string">'./src/index.js'</span></div><div class="line">	&#125;,</div><div class="line">	plugins: [</div><div class="line">		new CleanWebpackPlugin([<span class="string">'dist'</span>]),</div><div class="line">		new HtmlWebpackPlugin(&#123;</div><div class="line">			title: <span class="string">'Production'</span></div><div class="line">		&#125;)</div><div class="line">	],</div><div class="line">	output: &#123;</div><div class="line">		filename: <span class="string">'[name].bundle.js'</span>,</div><div class="line">		path: path.resolve(__dirname, <span class="string">'dist'</span>)</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
 
@@ -377,11 +384,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
               </li>
             
             <div class="clearfix"></div>
