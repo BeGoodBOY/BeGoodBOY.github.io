@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/h5/storage/local.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/h5/storage/session.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/h5/storage/session1.png">
-<meta property="og:updated_time" content="2017-09-20T09:56:23.925Z">
+<meta property="og:updated_time" content="2017-09-21T08:14:21.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebStorage API">
 <meta name="twitter:description" content="简述WebStorage 即客户端存储，今天主要来研究一下H5的sessionStorage和localStorage的区别之处：  sessionStorage: 为每一个给定的源（given origin）维持一个独立的存储区域，该存储区域在页面会话期间可用（即只要浏览器处于打开状态，包括页面重新加载和恢复）。 localStorage: 同样的功能，但是在浏览器关闭，然后重新打开后数据仍然">
@@ -175,6 +175,7 @@
 <li>sessionStorage: 为每一个给定的源（given origin）维持一个独立的存储区域，该存储区域在页面会话期间可用（即只要浏览器处于打开状态，包括页面重新加载和恢复）。</li>
 <li>localStorage: 同样的功能，但是在浏览器关闭，然后重新打开后数据仍然存在。</li>
 </ul>
+<a id="more"></a>
 <h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> storage = window.localStorage   <span class="comment">#sessionStorage相同</span></div><div class="line"></div><div class="line"><span class="comment">#添加或者修改</span></div><div class="line"><span class="comment">#storage.setItem(key,val) 或 storage[key] = val; 例如：</span></div><div class="line">storage.setItem(<span class="string">'name'</span>,<span class="string">'yourname'</span>);</div><div class="line"></div><div class="line"><span class="comment">#查看</span></div><div class="line"><span class="comment">#storage.getItem(key) 或 storage[key]  例如：</span></div><div class="line"><span class="built_in">let</span> result = storage.getItem(<span class="string">'name'</span>);</div><div class="line"></div><div class="line"><span class="comment">#删除</span></div><div class="line"><span class="comment">#storage.removeItem(key)</span></div><div class="line">storage.removeItem(name);</div><div class="line"></div><div class="line"><span class="comment">#清空</span></div><div class="line">storage.clear();</div></pre></td></tr></table></figure>
 <h2 id="localStorage-和-sessionStorage-差别案例"><a href="#localStorage-和-sessionStorage-差别案例" class="headerlink" title="localStorage 和 sessionStorage 差别案例"></a><code>localStorage</code> 和 <code>sessionStorage</code> 差别案例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#html</span></div><div class="line">&lt;form&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;label <span class="keyword">for</span>=<span class="string">"name"</span>&gt;账号: &lt;/label&gt;</div><div class="line">    &lt;input name=<span class="string">"name"</span> <span class="built_in">type</span>=<span class="string">"text"</span> id=<span class="string">"name"</span>&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;label <span class="keyword">for</span>=<span class="string">"pwd"</span>&gt;密码: &lt;/label&gt;</div><div class="line">    &lt;input name=<span class="string">"pwd"</span> <span class="built_in">type</span>=<span class="string">"password"</span> id=<span class="string">"pwd"</span>&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;input id=<span class="string">"btn"</span> <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"更新Storage"</span>&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
 <h3 id="现在是-localStorage"><a href="#现在是-localStorage" class="headerlink" title="现在是 localStorage"></a>现在是 <code>localStorage</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">window.onload = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="built_in">let</span> storage = window.localStorage, </div><div class="line">        name = document.querySelector(<span class="string">'#name'</span>),</div><div class="line">        <span class="built_in">pwd</span> = document.querySelector(<span class="string">'#pwd'</span>),</div><div class="line">        btn = document.querySelector(<span class="string">'#btn'</span>);</div><div class="line">    <span class="keyword">if</span> (!storage.name) &#123;</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        name.value = storage.name;</div><div class="line">        pwd.value = storage.value;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    btn.onclick = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">        storage.name = name.value;</div><div class="line">        storage.pwd = pwd.value;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
@@ -276,6 +277,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/09/20/highJS/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          读《高性能Javascript编程》的收获
+        
+      </div>
+    </a>
   
   
     <a href="/2017/09/19/webpack记录/" id="article-nav-older" class="article-nav-link-wrap">
@@ -397,6 +407,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
               </li>
              
@@ -405,11 +419,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">性能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">读书</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
             
             <div class="clearfix"></div>

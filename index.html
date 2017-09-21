@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://www.lbbstc.com">
   <title>进击的前端ING</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端开发">
+  <meta name="description" content="前端开发，web学习，web进阶，js，javascript学习，vue笔记">
 <meta property="og:type" content="website">
 <meta property="og:title" content="进击的前端ING">
 <meta property="og:url" content="http://www.lbbstc.com/index.html">
 <meta property="og:site_name" content="进击的前端ING">
-<meta property="og:description" content="前端开发">
+<meta property="og:description" content="前端开发，web学习，web进阶，js，javascript学习，vue笔记">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进击的前端ING">
-<meta name="twitter:description" content="前端开发">
+<meta name="twitter:description" content="前端开发，web学习，web进阶，js，javascript学习，vue笔记">
   
     <link rel="alternative" href="/atom.xml" title="进击的前端ING" type="application/atom+xml">
   
@@ -144,6 +144,189 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-重构与回流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/20/重构与回流/">重绘和重排(重构和回流)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/20/重构与回流/" class="archive-article-date">
+  	<time datetime="2017-09-20T10:48:16.865Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当浏览器下载完所有页面 HTML 标记，JavaScript，CSS，图片之后，它解析文件并创建两个内部数据<br>结构：</p>
+<ul>
+<li>一棵 DOM 树（表示页面结构）</li>
+<li>一棵渲染树 （表示 DOM 节点如何显示）</li>
+</ul>
+<h3 id="为什么会发生重绘和重排"><a href="#为什么会发生重绘和重排" class="headerlink" title="为什么会发生重绘和重排"></a>为什么会发生重绘和重排</h3><p>渲染树中为每个需要显示的 DOM 树节点存放至少一个节点（隐藏 DOM 元素在渲染树中没有对应节<br>点）。渲染树上的节点称为“框”或者“盒”，符合 CSS 模型的定义，将页面元素看作一个具有填充、边距、<br>边框和位置的盒。一旦 DOM 树和渲染树构造完毕，浏览器就可以显示（绘制）页面上的元素了。<br>
+        
+          <a class="article-more-a" href="/2017/09/20/重构与回流/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">性能</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/20/重构与回流/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-highJS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/20/highJS/">读《高性能Javascript编程》的收获</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/20/highJS/" class="archive-article-date">
+  	<time datetime="2017-09-20T10:47:56.224Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/book/highJS/img/1.png" alt="JS" title="JS"></p>
+<h2 id="加载和运行"><a href="#加载和运行" class="headerlink" title="加载和运行"></a>加载和运行</h2><blockquote>
+<ul>
+<li>javascript阻塞问题</li>
+<li>javascript运行过程阻塞其他文件下载</li>
+</ul>
+</blockquote>
+<h3 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h3><ol>
+<li>因为脚本阻塞其他页面资源的下载过程，所以推荐的办法是：将所有<code>&lt;script&gt;</code>标签放在尽可能接近<code>&lt;body&gt;</code>标签底部的位置，尽量减少对整个页面下载的影响。</li>
+<li>由于每个<code>&lt;script&gt;</code>标签下载时阻塞页面解析过程，所以限制页面的<code>&lt;script&gt;</code>总数也可以改善性能。这个规则对内联脚本和外部脚本同样适用。每当页面解析碰到一个<code>&lt;script&gt;</code>标签时，紧接着有一段时间用于代码执行。最小化这些延迟时间可以改善页面的整体性能。</li>
+<li>每个 HTTP 请求都会产生额外的性能负担，下载一个 100KB 的文件比下载四个 25KB 的文件要快。总之，减少引用外部脚本文件的数量。
+        
+          <a class="article-more-a" href="/2017/09/20/highJS/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">性能</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">读书</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/20/highJS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-localStorage，sessionStorage" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -170,22 +353,9 @@
 <li>sessionStorage: 为每一个给定的源（given origin）维持一个独立的存储区域，该存储区域在页面会话期间可用（即只要浏览器处于打开状态，包括页面重新加载和恢复）。</li>
 <li>localStorage: 同样的功能，但是在浏览器关闭，然后重新打开后数据仍然存在。</li>
 </ul>
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> storage = window.localStorage   <span class="comment">#sessionStorage相同</span></div><div class="line"></div><div class="line"><span class="comment">#添加或者修改</span></div><div class="line"><span class="comment">#storage.setItem(key,val) 或 storage[key] = val; 例如：</span></div><div class="line">storage.setItem(<span class="string">'name'</span>,<span class="string">'yourname'</span>);</div><div class="line"></div><div class="line"><span class="comment">#查看</span></div><div class="line"><span class="comment">#storage.getItem(key) 或 storage[key]  例如：</span></div><div class="line"><span class="built_in">let</span> result = storage.getItem(<span class="string">'name'</span>);</div><div class="line"></div><div class="line"><span class="comment">#删除</span></div><div class="line"><span class="comment">#storage.removeItem(key)</span></div><div class="line">storage.removeItem(name);</div><div class="line"></div><div class="line"><span class="comment">#清空</span></div><div class="line">storage.clear();</div></pre></td></tr></table></figure>
-<h2 id="localStorage-和-sessionStorage-差别案例"><a href="#localStorage-和-sessionStorage-差别案例" class="headerlink" title="localStorage 和 sessionStorage 差别案例"></a><code>localStorage</code> 和 <code>sessionStorage</code> 差别案例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#html</span></div><div class="line">&lt;form&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;label <span class="keyword">for</span>=<span class="string">"name"</span>&gt;账号: &lt;/label&gt;</div><div class="line">    &lt;input name=<span class="string">"name"</span> <span class="built_in">type</span>=<span class="string">"text"</span> id=<span class="string">"name"</span>&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;label <span class="keyword">for</span>=<span class="string">"pwd"</span>&gt;密码: &lt;/label&gt;</div><div class="line">    &lt;input name=<span class="string">"pwd"</span> <span class="built_in">type</span>=<span class="string">"password"</span> id=<span class="string">"pwd"</span>&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;input id=<span class="string">"btn"</span> <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"更新Storage"</span>&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
-<h3 id="现在是-localStorage"><a href="#现在是-localStorage" class="headerlink" title="现在是 localStorage"></a>现在是 <code>localStorage</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">window.onload = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="built_in">let</span> storage = window.localStorage, </div><div class="line">        name = document.querySelector(<span class="string">'#name'</span>),</div><div class="line">        <span class="built_in">pwd</span> = document.querySelector(<span class="string">'#pwd'</span>),</div><div class="line">        btn = document.querySelector(<span class="string">'#btn'</span>);</div><div class="line">    <span class="keyword">if</span> (!storage.name) &#123;</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        name.value = storage.name;</div><div class="line">        pwd.value = storage.value;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    btn.onclick = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">        storage.name = name.value;</div><div class="line">        storage.pwd = pwd.value;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>运行页面，输入值然后点击按钮查看本地存储：<br><img src="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/h5/storage/local.png" alt="localStorage" title="localStorage"></p>
-<p>现在无论你<strong>刷新页面、关闭页面、重新打开页面</strong>，再查看本地存储仍会看到<code>localStorage中包含name和pwd</code></p>
-<h3 id="反观-sessionStorage"><a href="#反观-sessionStorage" class="headerlink" title="反观 sessionStorage"></a>反观 <code>sessionStorage</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">window.onload = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="built_in">let</span> storage = window.sessionStorage, //只改了这里</div><div class="line">        name = document.querySelector(<span class="string">'#name'</span>),</div><div class="line">        <span class="built_in">pwd</span> = document.querySelector(<span class="string">'#pwd'</span>),</div><div class="line">        btn = document.querySelector(<span class="string">'#btn'</span>);</div><div class="line">    <span class="keyword">if</span> (!storage.name) &#123;</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        name.value = storage.name;</div><div class="line">        pwd.value = storage.value;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    btn.onclick = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">        storage.name = name.value;</div><div class="line">        storage.pwd = pwd.value;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>同样的操作：运行页面，输入值然后点击按钮查看本地存储：</p>
-<p><img src="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/h5/storage/session.png" alt="sessionStorage" title="sessionStorage"></p>
-<p>现在当你<strong>刷新页面</strong>时，在sessionStorage里仍然保留存储，但当你在新的标签页重新打开页面或者关闭浏览器再打开页面，你的sessionStorage里的值就消失了<br><img src="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/h5/storage/session1.png" alt="sessiongNo" title="sessionNo"></p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p><code>localStorage</code> 和 <code>sessionStorage</code>都遵循同源策略，<code>sessionStorage</code>字面意思可以看出是会话存储，即伴随着当前会话的结束(当前页面关闭)，sessionStorage也会消失。<br>而<code>localStorage</code>是会一直存在的，除非人为操作删除它。</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p><strong>目前<code>Storage</code>会自动将存储值转换为字符串形式（String）</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">localStorage.num = 1;</div><div class="line">console.log(typeof localStorage.num) <span class="comment">#输出string</span></div></pre></td></tr></table></figure>
-<p><strong>考虑倒这些，对于JSON数据我们要做些处理</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var jsonData = &#123;</div><div class="line">	name: <span class="string">'libo'</span>,</div><div class="line">	age: 18</div><div class="line">&#125;;</div><div class="line">localStorage.jsonData = JSON.stringify(jsonData);</div><div class="line">var myJsonData = JSON.parse(localStorage.jsonData);</div></pre></td></tr></table></figure>
-<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>目前大概是这些了，想到了再回来补充</p>
-
+        
+          <a class="article-more-a" href="/2017/09/19/localStorage，sessionStorage/#more">more >></a>
+        
       
 
       
@@ -485,6 +655,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
               </li>
              
@@ -493,11 +667,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">性能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">读书</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
             
             <div class="clearfix"></div>
