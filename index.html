@@ -144,6 +144,181 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ES6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/25/ES6/">ES6一些好用的东西</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/25/ES6/" class="archive-article-date">
+  	<time datetime="2017-09-25T08:24:01.917Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/book/es6/cover.jpg" alt="es6cover" title="es6cover"></p>
+<blockquote>
+<p>伴随着互联网的不断发展，JS语言的角色也越来越重要！为了使JS语言能够更好的融入工程化开发，逻辑复杂的企业级项目等，ECMAScript 6.0（简称ES6）也就顺其自然的诞生了。下面我们来见识一下ES6的强大之处：</p>
+</blockquote>
+<h2 id="let-const"><a href="#let-const" class="headerlink" title="let,const"></a>let,const</h2><p><strong> ES6新增了<code>let</code>和<code>const</code>用来声明变量 </strong><br>1.大多数情况可以用<code>let</code>取代<code>var</code>来声明变量，而且<code>let</code>会更好，<code>let</code>有了块级作用域。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//old</div><div class="line"><span class="keyword">for</span>(var i=0;i&lt;3;i++)&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">console.log(i);//3</div><div class="line">//new</div><div class="line"><span class="keyword">for</span>(<span class="built_in">let</span> i=0;i&lt;3;i++)&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">console.log(i);//undefined</div></pre></td></tr></table></figure>
+<p>2.<code>const</code>也用来声明变量，但是声明的是常量。一旦声明，常量的值就不能改变。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const PI = Math.PI;</div><div class="line">PI = 3333;//报错Assignment to constant variable.</div></pre></td></tr></table></figure>
+<h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><p>使用数组成员对变量赋值时，优先使用解构赋值。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const arr = [1, 2, 3, 4];</div><div class="line"></div><div class="line">// old</div><div class="line">const first = arr[0];</div><div class="line">const second = arr[1];</div><div class="line"></div><div class="line">// new</div><div class="line">const [first, second] = arr;</div></pre></td></tr></table></figure></p>
+<p>函数的参数如果是对象的成员，优先使用解构赋值。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line"><span class="keyword">function</span> getFullName(user) &#123;</div><div class="line">  const firstName = user.firstName;</div><div class="line">  const lastName = user.lastName;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// good</div><div class="line"><span class="keyword">function</span> getFullName(obj) &#123;</div><div class="line">  const &#123; firstName, lastName &#125; = obj;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// best</div><div class="line"><span class="keyword">function</span> getFullName(&#123; firstName, lastName &#125;) &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>ES6支持使用拓展运算符<code>...</code>拷贝数组<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const copyArr = [...arr];</div></pre></td></tr></table></figure></p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p><strong>ES6添加的箭头函数用起来真的很棒，推荐大家使用</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//old</div><div class="line">[1,2,3].map(<span class="keyword">function</span>(x)&#123;</div><div class="line">	<span class="built_in">return</span> x*x;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//new</div><div class="line">[1,2,3].map(x=&gt;x*x&#125;);</div></pre></td></tr></table></figure></p>
+<p>箭头函数绑定了this的指向，不用再去手动指向。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//old</div><div class="line">const self = this;</div><div class="line">const boundMethod = <span class="keyword">function</span>(...params)&#123;</div><div class="line">	<span class="built_in">return</span> method.apply(self,params);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//new</div><div class="line">const boundMethod = (...params) =&gt; method.apply(this,params);</div></pre></td></tr></table></figure></p>
+<p>不要在函数体内使用arguments变量，使用rest运算符（…）代替。因为rest运算符显式表明你想要获取参数，而且arguments是一个类似数组的对象，而rest运算符可以提供一个真正的数组。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// old</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">concatenateAll</span></span>() &#123;</div><div class="line">  const args = Array.prototype.slice.call(arguments);</div><div class="line">  <span class="built_in">return</span> args.join(<span class="string">''</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// new</div><div class="line"><span class="keyword">function</span> concatenateAll(...args) &#123;</div><div class="line">  <span class="built_in">return</span> args.join(<span class="string">''</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>使用默认值语法设置函数参数的默认值。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//old</div><div class="line"><span class="keyword">function</span> func(params)&#123;</div><div class="line">	params = params || &#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//new </div><div class="line"><span class="keyword">function</span> func(params = &#123;&#125;)&#123;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><p><strong> ES6增加了<code>class</code>用来取代<code>prototype</code>的功能，使原型链更易于理解。 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//prototype</div><div class="line"><span class="keyword">function</span> Queue(contents = [])&#123;</div><div class="line">	this._queue = [...contents];</div><div class="line">&#125;</div><div class="line">Queue.prototype.pop = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">	const value = this._queue[0];</div><div class="line">	this._queue = this._queue.splice(0,1);</div><div class="line">	<span class="built_in">return</span> value;</div><div class="line">&#125;;</div><div class="line">//class</div><div class="line">class Queue &#123;</div><div class="line">	constructor(contents = [])&#123;</div><div class="line">		this._queue = [...contents];</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="title">pop</span></span>()&#123;</div><div class="line">		const value = this._queue[0];</div><div class="line">		this._queue.splice(0,1);</div><div class="line">		<span class="built_in">return</span> value;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong> 使用extends实现继承，因为这样更简单，不会破坏instanceof运算的危险 </strong></p>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p><strong> ES6增加了对模块化的支持，<code>export</code>和<code>import</code> </strong><br>使用<code>import</code>取代<code>require</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">const moduleA = require(<span class="string">'moduleA'</span>);</div><div class="line">const funcA = moduleA.funcA;</div><div class="line">const funcB = moduleA.funcB;</div><div class="line"></div><div class="line">//可以替换为如下</div><div class="line"></div><div class="line">import &#123;funcA,funB&#125; from moduleA;</div></pre></td></tr></table></figure></p>
+<p>使用<code>export</code>取代<code>module.exports</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//commonJs写法</div><div class="line">var ob = &#123;&#125;;</div><div class="line">module.exports = ob;</div><div class="line"></div><div class="line">//ES6</div><div class="line"><span class="built_in">let</span> ob = &#123;&#125;;</div><div class="line"><span class="built_in">export</span> default ob;</div></pre></td></tr></table></figure></p>
+<p>当模块仅需要单个输出值时可以用<code>export default</code>,多个输出值时用<code>export</code>.<code>export</code>和<code>export default</code>不要同时使用。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/25/ES6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Vue" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/22/Vue/">vue记录</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/22/Vue/" class="archive-article-date">
+  	<time datetime="2017-09-22T09:24:55.836Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/vue/cover.png" alt="vuecover" title="vuecover"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/22/Vue/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-重构与回流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -675,11 +850,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">读书</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
             
             <div class="clearfix"></div>
@@ -730,7 +913,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">电话： 13681526410  &lt;br&gt; QQ： 578017610 &lt;br&gt; 微信： lbstc888</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt; 13年毕业,三年web前端工作经验&lt;br&gt; 电话： 13681526410  &lt;br&gt; QQ： 578017610 &lt;br&gt; 微信： lbstc888 &lt;br&gt;不飞到高处，怎能开阔自己的视野</div>
   	  	
     	</section>
     
