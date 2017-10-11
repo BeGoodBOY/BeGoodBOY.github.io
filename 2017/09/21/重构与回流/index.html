@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.lbbstc.com">
-  <title>相册 | 进击的前端ING</title>
+  <title>重绘和重排(重构和回流) | 进击的前端ING</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
-<meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://www.lbbstc.com/photos/index.html">
+  <meta name="description" content="当浏览器下载完所有页面 HTML 标记，JavaScript，CSS，图片之后，它解析文件并创建两个内部数据结构：  一棵 DOM 树（表示页面结构） 一棵渲染树 （表示 DOM 节点如何显示）  为什么会发生重绘和重排渲染树中为每个需要显示的 DOM 树节点存放至少一个节点（隐藏 DOM 元素在渲染树中没有对应节点）。渲染树上的节点称为“框”或者“盒”，符合 CSS 模型的定义，将页面元素看作一">
+<meta name="keywords" content="js,性能,html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重绘和重排(重构和回流)">
+<meta property="og:url" content="http://www.lbbstc.com/2017/09/21/重构与回流/index.html">
 <meta property="og:site_name" content="进击的前端ING">
-<meta property="og:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta property="og:description" content="当浏览器下载完所有页面 HTML 标记，JavaScript，CSS，图片之后，它解析文件并创建两个内部数据结构：  一棵 DOM 树（表示页面结构） 一棵渲染树 （表示 DOM 节点如何显示）  为什么会发生重绘和重排渲染树中为每个需要显示的 DOM 树节点存放至少一个节点（隐藏 DOM 元素在渲染树中没有对应节点）。渲染树上的节点称为“框”或者“盒”，符合 CSS 模型的定义，将页面元素看作一">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-19T03:08:02.000Z">
+<meta property="og:updated_time" content="2017-09-21T08:13:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta name="twitter:title" content="重绘和重排(重构和回流)">
+<meta name="twitter:description" content="当浏览器下载完所有页面 HTML 标记，JavaScript，CSS，图片之后，它解析文件并创建两个内部数据结构：  一棵 DOM 树（表示页面结构） 一棵渲染树 （表示 DOM 节点如何显示）  为什么会发生重绘和重排渲染树中为每个需要显示的 DOM 树节点存放至少一个节点（隐藏 DOM 元素在渲染树中没有对应节点）。渲染树上的节点称为“框”或者“盒”，符合 CSS 模型的定义，将页面元素看作一">
   
     <link rel="alternative" href="/atom.xml" title="进击的前端ING" type="application/atom+xml">
   
@@ -143,42 +144,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-photos" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-重构与回流" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      重绘和重排(重构和回流)
     </h1>
   
 
+        
+        <a href="/2017/09/21/重构与回流/" class="archive-article-date">
+  	<time datetime="2017-09-21T08:13:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-21</time>
+</a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <link rel="stylesheet" href="./ins.css">
-<div class="photos-btn-wrap">
-	<a class="photos-btn active" href="javascript:void(0)" target="_blank" rel="external">Photos</a>
-	<a class="photos-btn" href="#">待续</a>
-</div>
-<div class="instagram itemscope">
-	<a href="https://www.instagram.com/lawlitewang20/" target="_blank" class="open-ins">图片正在加载中…</a>
-</div>
-<script>
-  (function() {
-    var loadScript = function(path) {
-      var $script = document.createElement('script')
-      document.getElementsByTagName('body')[0].appendChild($script)
-      $script.setAttribute('src', path)
-    }
-    setTimeout(function() {
-      loadScript('./ins.js')
-    }, 0)
-  })()
-</script>
+        <p>当浏览器下载完所有页面 HTML 标记，JavaScript，CSS，图片之后，它解析文件并创建两个内部数据<br>结构：</p>
+<ul>
+<li>一棵 DOM 树（表示页面结构）</li>
+<li>一棵渲染树 （表示 DOM 节点如何显示）</li>
+</ul>
+<h3 id="为什么会发生重绘和重排"><a href="#为什么会发生重绘和重排" class="headerlink" title="为什么会发生重绘和重排"></a>为什么会发生重绘和重排</h3><p>渲染树中为每个需要显示的 DOM 树节点存放至少一个节点（隐藏 DOM 元素在渲染树中没有对应节<br>点）。渲染树上的节点称为“框”或者“盒”，符合 CSS 模型的定义，将页面元素看作一个具有填充、边距、<br>边框和位置的盒。一旦 DOM 树和渲染树构造完毕，浏览器就可以显示（绘制）页面上的元素了。<br><a id="more"></a><br>当 DOM 改变影响到元素的几何属性（宽和高）——例如改变了边框宽度或在段落中添加文字，将发生<br>一系列后续动作——浏览器需要重新计算元素的几何属性，而且其他元素的几何属性和位置也会因此改变<br>受到影响。浏览器使渲染树上受到影响的部分失效，然后重构渲染树。这个过程被称作重排版。重排版完<br>成时，浏览器在一个重绘进程中重新绘制屏幕上受影响的部分。</p>
+<p>不是所有的 DOM 改变都会影响几何属性。例如，改变一个元素的背景颜色不会影响它的宽度或高度。<br>在这种情况下，只需要重绘（不需要重排版），因为元素的布局没有改变。</p>
+<h3 id="什么情况下会发生重排呢？"><a href="#什么情况下会发生重排呢？" class="headerlink" title="什么情况下会发生重排呢？"></a>什么情况下会发生重排呢？</h3><ol>
+<li>添加或删除<strong>可见</strong>的DOM元素（display:none的元素不影响）</li>
+<li>元素位置改变（元素尺寸改变（因为边距，填充，边框宽度，宽度，高度等属性改变））</li>
+<li>内容改变，例如，文本改变或图片被另一个不同尺寸的所替代</li>
+<li>最初的页面渲染</li>
+<li>浏览器窗口改变尺寸</li>
+</ol>
+<p>根据改变的性质，渲染树上或大或小的一部分需要重新计算。某些改变可导致重排版整个页面：例如，<br>当一个滚动条出现时。</p>
+<h3 id="查询并刷新渲染树改变"><a href="#查询并刷新渲染树改变" class="headerlink" title="查询并刷新渲染树改变"></a>查询并刷新渲染树改变</h3><p>因为计算量与每次重排版有关，大多数浏览器通过队列化修改和批量显示优化重排版过程。然而，你可<br>能（经常不由自主地）强迫队列刷新并要求所有计划改变的部分立刻应用。获取布局信息的操作将导致刷<br>新队列动作，这意味着使用了下面这些方法：</p>
+<ul>
+<li>offsetTop, offsetLeft, offsetWidth, offsetHeight</li>
+<li>scrollTop, scrollLeft, scrollWidth, scrollHeight</li>
+<li>clientTop, clientLeft, clientWidth, clientHeight</li>
+<li>getComputedStyle() (currentStyle in IE)（在 IE 中此函数称为 currentStyle）<blockquote>
+<p>布局信息由这些属性和方法返回最新的数据，所以浏览器不得不运行渲染队列中待改变的项目并重新排<br>版以返回正确的值。<br>在改变风格的过程中，最好不要使用前面列出的那些属性。任何一个访问都将刷新渲染队列，即使你正<br>在获取那些最近未发生改变的或者与最新的改变无关的布局信息。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="最小化重绘和重排版"><a href="#最小化重绘和重排版" class="headerlink" title="最小化重绘和重排版"></a>最小化重绘和重排版</h2><h3 id="重排版和重绘代价昂贵，所以，提高程序响应速度一个好策略是减少此类操作发生的机会。为减少发生"><a href="#重排版和重绘代价昂贵，所以，提高程序响应速度一个好策略是减少此类操作发生的机会。为减少发生" class="headerlink" title="重排版和重绘代价昂贵，所以，提高程序响应速度一个好策略是减少此类操作发生的机会。为减少发生"></a>重排版和重绘代价昂贵，所以，提高程序响应速度一个好策略是减少此类操作发生的机会。为减少发生</h3><p>次数，你应该将多个 DOM 和风格改变合并到一个批次中一次性执行</p>
+<p>例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var el = document.getElementById(<span class="string">'mydiv'</span>);</div><div class="line">el.style.borderLeft = <span class="string">'1px'</span>;</div><div class="line">el.style.borderRight = <span class="string">'2px'</span>;</div><div class="line">el.style.padding = <span class="string">'5px'</span>;</div></pre></td></tr></table></figure></p>
+<p>这里改变了三个风格属性，每次改变都影响到元素的几何属性。在这个糟糕的例子中，它导致浏览器重<br>排版了三次。大多数现代浏览器优化了这种情况只进行一次重排版，但是在老式浏览器中，或者同时有一<br>个分离的同步进程（例如使用了一个定时器），效率将十分低下。如果其他代码在这段代码运行时查询布<br>局信息，将导致三次重布局发生。而且，此代码访问 DOM 四次，可以被优化。</p>
+<p>一个达到同样效果而效率更高的方法是：将所有改变合并在一起执行，只修改 DOM 一次。可通过使用<br>cssText 属性实现：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var el = document.getElementById(<span class="string">'mydiv'</span>);</div><div class="line">el.style.cssText = <span class="string">'border-left: 1px; border-right: 2px; padding: 5px;'</span>;</div><div class="line"><span class="comment">#或者通过操作class实现</span></div></pre></td></tr></table></figure></p>
+<h3 id="批量修改-DOM"><a href="#批量修改-DOM" class="headerlink" title="批量修改 DOM"></a>批量修改 DOM</h3><p>当你需要对 DOM 元素进行多次修改时，你可以通过以下步骤减少重绘和重排版的次数：</p>
+<ol>
+<li>从文档流中摘除该元素</li>
+<li>对其应用多重改变</li>
+<li>将元素带回文档中</li>
+</ol>
+<p>此过程引发两次重排版——第一步引发一次，第三步引发一次。如果你忽略了这两个步骤，那么第二步<br>中每次改变都将引发一次重排版。</p>
+<p><strong>有三种基本方法可以将 DOM 从文档中摘除：</strong></p>
+<ol>
+<li>隐藏元素，进行修改，然后再显示它。</li>
+<li>使用一个文档片断在已存 DOM 之外创建一个子树，然后将它拷贝到文档中。</li>
+<li>将原始元素拷贝到一个脱离文档的节点中，修改副本，然后覆盖原始元素。</li>
+</ol>
+<h3 id="缓冲布局信息"><a href="#缓冲布局信息" class="headerlink" title="缓冲布局信息"></a>缓冲布局信息</h3><p>浏览器通过队列化修改和批量运行的方法，尽量减少重排版次数。当你查询布局信息如偏移量、滚动条<br>位置，或风格属性时，浏览器刷队列并执行所有修改操作，以返回最新的数值。最好是尽量减少对布局信<br>息的查询次数，查询时将它赋给局部变量，并用局部变量参与计算。</p>
+<h3 id="将元素提出动画流"><a href="#将元素提出动画流" class="headerlink" title="将元素提出动画流"></a>将元素提出动画流</h3><p>显示和隐藏部分页面构成展开/折叠动画是一种常见的交互模式。它通常包括区域扩大的几何动画，将<br>页面其他部分推向下方。<br>重排版有时只影响渲染树的一小部分，但也可以影响很大的一部分，甚至整个渲染树。浏览器需要重排<br>版的部分越小，应用程序的响应速度就越快。所以当一个页面顶部的动画推移了差不多整个页面时，将引<br>发巨大的重排版动作，使用户感到动画卡顿。渲染树的大多数节点需要被重新计算，它变得更糟糕。<br><strong>使用以下步骤可以避免对大部分页面进行重排版：</strong></p>
+<ol>
+<li>使用绝对坐标定位页面动画的元素，使它位于页面布局流之外。</li>
+<li>启动元素动画。当它扩大时，它临时覆盖部分页面。这是一个重绘过程，但只影响页面的一小部分，避<br>免重排版并重绘一大块页面。</li>
+<li>当动画结束时，重新定位，从而只一次下移文档其他元素的位置。</li>
+</ol>
+
       
 
       
@@ -186,6 +221,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">性能</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -236,7 +290,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://www.lbbstc.com/photos/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.lbbstc.com/2017/09/21/重构与回流/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -248,6 +302,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2017/09/21/highJS/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          读《高性能Javascript编程》的收获
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/20/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo cmd</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -266,6 +339,16 @@
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -288,7 +371,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

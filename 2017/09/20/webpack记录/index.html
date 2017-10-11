@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.lbbstc.com">
-  <title>相册 | 进击的前端ING</title>
+  <title>webpack | 进击的前端ING</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
-<meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://www.lbbstc.com/photos/index.html">
+  <meta name="description" content="生产环境搭建 根据生产环境与开发环境的不同用途，我们需要作出不同的webpack配置。生产环境我们希望得到不缺失功能但体积更小的文件：bundle、sourcemap 等。 由于遵循逻辑分离，通常生产环境与开发环境编写彼此独立的配置   如上图我们可以把通用配置放到webpack.common.js文件，再根据不同点去编写webpack.dev.js和webpack.prod.js。详见案例gi">
+<meta name="keywords" content="webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack">
+<meta property="og:url" content="http://www.lbbstc.com/2017/09/20/webpack记录/index.html">
 <meta property="og:site_name" content="进击的前端ING">
-<meta property="og:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta property="og:description" content="生产环境搭建 根据生产环境与开发环境的不同用途，我们需要作出不同的webpack配置。生产环境我们希望得到不缺失功能但体积更小的文件：bundle、sourcemap 等。 由于遵循逻辑分离，通常生产环境与开发环境编写彼此独立的配置   如上图我们可以把通用配置放到webpack.common.js文件，再根据不同点去编写webpack.dev.js和webpack.prod.js。详见案例gi">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-19T03:08:02.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/webpack/webpack.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/webpack/config1.png">
+<meta property="og:updated_time" content="2017-09-20T11:52:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta name="twitter:title" content="webpack">
+<meta name="twitter:description" content="生产环境搭建 根据生产环境与开发环境的不同用途，我们需要作出不同的webpack配置。生产环境我们希望得到不缺失功能但体积更小的文件：bundle、sourcemap 等。 由于遵循逻辑分离，通常生产环境与开发环境编写彼此独立的配置   如上图我们可以把通用配置放到webpack.common.js文件，再根据不同点去编写webpack.dev.js和webpack.prod.js。详见案例gi">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/webpack/webpack.png">
   
     <link rel="alternative" href="/atom.xml" title="进击的前端ING" type="application/atom+xml">
   
@@ -143,42 +147,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-photos" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-webpack记录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      webpack
     </h1>
   
 
+        
+        <a href="/2017/09/20/webpack记录/" class="archive-article-date">
+  	<time datetime="2017-09-20T11:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-20</time>
+</a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <link rel="stylesheet" href="./ins.css">
-<div class="photos-btn-wrap">
-	<a class="photos-btn active" href="javascript:void(0)" target="_blank" rel="external">Photos</a>
-	<a class="photos-btn" href="#">待续</a>
-</div>
-<div class="instagram itemscope">
-	<a href="https://www.instagram.com/lawlitewang20/" target="_blank" class="open-ins">图片正在加载中…</a>
-</div>
-<script>
-  (function() {
-    var loadScript = function(path) {
-      var $script = document.createElement('script')
-      document.getElementsByTagName('body')[0].appendChild($script)
-      $script.setAttribute('src', path)
-    }
-    setTimeout(function() {
-      loadScript('./ins.js')
-    }, 0)
-  })()
-</script>
+        <p><img src="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/webpack/webpack.png" alt="Alt text" title="webpack"></p>
+<h2 id="生产环境搭建"><a href="#生产环境搭建" class="headerlink" title="生产环境搭建"></a>生产环境搭建</h2><blockquote>
+<p>根据生产环境与开发环境的不同用途，我们需要作出不同的webpack配置。生产环境我们希望得到不缺失功能但体积更小的文件：<strong>bundle、sourcemap</strong> 等。 由于遵循逻辑分离，通常生产环境与开发环境编写彼此独立的配置</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/webpack/config1.png" alt="config" title="webpackconfig"></p>
+<p>如上图我们可以把通用配置放到<strong>webpack.common.js</strong>文件，再根据不同点去编写webpack.dev.js和webpack.prod.js。详见案例<a href="https://github.com/BeGoodBOY/webpack-demo/tree/master/webpack-env" target="_blank" rel="external">github地址</a></p>
+<p>合并配置需要webpack-merge工具   <code>npm install --save-dev webpack-merge</code> 即可<br>代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#webpack.common.js</span></div><div class="line">const path = require(<span class="string">'path'</span>);</div><div class="line">const CleanWebpackPlugin = require(<span class="string">'clean-webpack-plugin'</span>);</div><div class="line">const HtmlWebpackPlugin = require(<span class="string">'html-webpack-plugin'</span>);</div><div class="line"></div><div class="line">module.exports = &#123;</div><div class="line">	entry: &#123;</div><div class="line">		app: <span class="string">'./src/index.js'</span></div><div class="line">	&#125;,</div><div class="line">	plugins: [</div><div class="line">		new CleanWebpackPlugin([<span class="string">'dist'</span>]),</div><div class="line">		new HtmlWebpackPlugin(&#123;</div><div class="line">			title: <span class="string">'Production'</span></div><div class="line">		&#125;)</div><div class="line">	],</div><div class="line">	output: &#123;</div><div class="line">		filename: <span class="string">'[name].bundle.js'</span>,</div><div class="line">		path: path.resolve(__dirname, <span class="string">'dist'</span>)</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#webpack.dev.js</span></div><div class="line">const merge = require(<span class="string">'webpack-merge'</span>);</div><div class="line">const common = require(<span class="string">'./webpack.common.js'</span>);</div><div class="line"></div><div class="line">module.exports = merge(common,&#123;</div><div class="line">	devtool: <span class="string">'inline-source-map'</span>,</div><div class="line">	devServer: &#123;</div><div class="line">		contentBase: <span class="string">'./dist'</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#webpack.prod.js</span></div><div class="line">const webpack = require(<span class="string">'webpack'</span>);</div><div class="line">const merge = require(<span class="string">'webpack-merge'</span>);</div><div class="line">const common = require(<span class="string">'./webpack.common.js'</span>);</div><div class="line">const UglifyJSPlugin = require(<span class="string">'uglifyjs-webpack-plugin'</span>);</div><div class="line"></div><div class="line">module.exports = merge(common,&#123;</div><div class="line">	devtool: <span class="string">'cheap-module-source-map'</span>,</div><div class="line">	plugins: [</div><div class="line">		new UglifyJSPlugin(),</div><div class="line">		new webpack.DefinePlugin(&#123;</div><div class="line">			<span class="string">'process.env'</span>: &#123;</div><div class="line">				<span class="string">'NODE_ENV'</span>: JSON.stringify(<span class="string">'production'</span>)</div><div class="line">			&#125;</div><div class="line">		&#125;)</div><div class="line">	]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
       
 
       
@@ -186,6 +185,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -236,7 +246,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://www.lbbstc.com/photos/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.lbbstc.com/2017/09/20/webpack记录/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -248,6 +258,20 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2017/09/20/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hexo cmd
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -266,6 +290,16 @@
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -288,7 +322,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

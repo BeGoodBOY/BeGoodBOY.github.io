@@ -6,19 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.lbbstc.com">
-  <title>相册 | 进击的前端ING</title>
+  <title>WebStorage API | 进击的前端ING</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
-<meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://www.lbbstc.com/photos/index.html">
+  <meta name="description" content="简述WebStorage 即客户端存储，今天主要来研究一下H5的sessionStorage和localStorage的区别之处：  sessionStorage: 为每一个给定的源（given origin）维持一个独立的存储区域，该存储区域在页面会话期间可用（即只要浏览器处于打开状态，包括页面重新加载和恢复）。 localStorage: 同样的功能，但是在浏览器关闭，然后重新打开后数据仍然">
+<meta name="keywords" content="js,HTML5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebStorage API">
+<meta property="og:url" content="http://www.lbbstc.com/2017/09/21/localStorage，sessionStorage/index.html">
 <meta property="og:site_name" content="进击的前端ING">
-<meta property="og:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta property="og:description" content="简述WebStorage 即客户端存储，今天主要来研究一下H5的sessionStorage和localStorage的区别之处：  sessionStorage: 为每一个给定的源（given origin）维持一个独立的存储区域，该存储区域在页面会话期间可用（即只要浏览器处于打开状态，包括页面重新加载和恢复）。 localStorage: 同样的功能，但是在浏览器关闭，然后重新打开后数据仍然">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-19T03:08:02.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/h5/storage/tit.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/h5/storage/local.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/h5/storage/session.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/h5/storage/session1.png">
+<meta property="og:updated_time" content="2017-09-21T08:14:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta name="twitter:title" content="WebStorage API">
+<meta name="twitter:description" content="简述WebStorage 即客户端存储，今天主要来研究一下H5的sessionStorage和localStorage的区别之处：  sessionStorage: 为每一个给定的源（given origin）维持一个独立的存储区域，该存储区域在页面会话期间可用（即只要浏览器处于打开状态，包括页面重新加载和恢复）。 localStorage: 同样的功能，但是在浏览器关闭，然后重新打开后数据仍然">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/h5/storage/tit.png">
   
     <link rel="alternative" href="/atom.xml" title="进击的前端ING" type="application/atom+xml">
   
@@ -143,42 +149,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-photos" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-localStorage，sessionStorage" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      WebStorage API
     </h1>
   
 
+        
+        <a href="/2017/09/21/localStorage，sessionStorage/" class="archive-article-date">
+  	<time datetime="2017-09-21T08:14:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-21</time>
+</a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <link rel="stylesheet" href="./ins.css">
-<div class="photos-btn-wrap">
-	<a class="photos-btn active" href="javascript:void(0)" target="_blank" rel="external">Photos</a>
-	<a class="photos-btn" href="#">待续</a>
-</div>
-<div class="instagram itemscope">
-	<a href="https://www.instagram.com/lawlitewang20/" target="_blank" class="open-ins">图片正在加载中…</a>
-</div>
-<script>
-  (function() {
-    var loadScript = function(path) {
-      var $script = document.createElement('script')
-      document.getElementsByTagName('body')[0].appendChild($script)
-      $script.setAttribute('src', path)
-    }
-    setTimeout(function() {
-      loadScript('./ins.js')
-    }, 0)
-  })()
-</script>
+        <p><img src="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/h5/storage/tit.png" alt="Storage" title="storage"></p>
+<h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p><strong>WebStorage</strong> 即客户端存储，今天主要来研究一下H5的<code>sessionStorage</code>和<code>localStorage</code>的区别之处：</p>
+<ul>
+<li>sessionStorage: 为每一个给定的源（given origin）维持一个独立的存储区域，该存储区域在页面会话期间可用（即只要浏览器处于打开状态，包括页面重新加载和恢复）。</li>
+<li>localStorage: 同样的功能，但是在浏览器关闭，然后重新打开后数据仍然存在。</li>
+</ul>
+<a id="more"></a>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> storage = window.localStorage   <span class="comment">#sessionStorage相同</span></div><div class="line"></div><div class="line"><span class="comment">#添加或者修改</span></div><div class="line"><span class="comment">#storage.setItem(key,val) 或 storage[key] = val; 例如：</span></div><div class="line">storage.setItem(<span class="string">'name'</span>,<span class="string">'yourname'</span>);</div><div class="line"></div><div class="line"><span class="comment">#查看</span></div><div class="line"><span class="comment">#storage.getItem(key) 或 storage[key]  例如：</span></div><div class="line"><span class="built_in">let</span> result = storage.getItem(<span class="string">'name'</span>);</div><div class="line"></div><div class="line"><span class="comment">#删除</span></div><div class="line"><span class="comment">#storage.removeItem(key)</span></div><div class="line">storage.removeItem(name);</div><div class="line"></div><div class="line"><span class="comment">#清空</span></div><div class="line">storage.clear();</div></pre></td></tr></table></figure>
+<h2 id="localStorage-和-sessionStorage-差别案例"><a href="#localStorage-和-sessionStorage-差别案例" class="headerlink" title="localStorage 和 sessionStorage 差别案例"></a><code>localStorage</code> 和 <code>sessionStorage</code> 差别案例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#html</span></div><div class="line">&lt;form&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;label <span class="keyword">for</span>=<span class="string">"name"</span>&gt;账号: &lt;/label&gt;</div><div class="line">    &lt;input name=<span class="string">"name"</span> <span class="built_in">type</span>=<span class="string">"text"</span> id=<span class="string">"name"</span>&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;label <span class="keyword">for</span>=<span class="string">"pwd"</span>&gt;密码: &lt;/label&gt;</div><div class="line">    &lt;input name=<span class="string">"pwd"</span> <span class="built_in">type</span>=<span class="string">"password"</span> id=<span class="string">"pwd"</span>&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;input id=<span class="string">"btn"</span> <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"更新Storage"</span>&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+<h3 id="现在是-localStorage"><a href="#现在是-localStorage" class="headerlink" title="现在是 localStorage"></a>现在是 <code>localStorage</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">window.onload = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="built_in">let</span> storage = window.localStorage, </div><div class="line">        name = document.querySelector(<span class="string">'#name'</span>),</div><div class="line">        <span class="built_in">pwd</span> = document.querySelector(<span class="string">'#pwd'</span>),</div><div class="line">        btn = document.querySelector(<span class="string">'#btn'</span>);</div><div class="line">    <span class="keyword">if</span> (!storage.name) &#123;</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        name.value = storage.name;</div><div class="line">        pwd.value = storage.value;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    btn.onclick = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">        storage.name = name.value;</div><div class="line">        storage.pwd = pwd.value;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>运行页面，输入值然后点击按钮查看本地存储：<br><img src="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/h5/storage/local.png" alt="localStorage" title="localStorage"></p>
+<p>现在无论你<strong>刷新页面、关闭页面、重新打开页面</strong>，再查看本地存储仍会看到<code>localStorage中包含name和pwd</code></p>
+<h3 id="反观-sessionStorage"><a href="#反观-sessionStorage" class="headerlink" title="反观 sessionStorage"></a>反观 <code>sessionStorage</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">window.onload = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="built_in">let</span> storage = window.sessionStorage, //只改了这里</div><div class="line">        name = document.querySelector(<span class="string">'#name'</span>),</div><div class="line">        <span class="built_in">pwd</span> = document.querySelector(<span class="string">'#pwd'</span>),</div><div class="line">        btn = document.querySelector(<span class="string">'#btn'</span>);</div><div class="line">    <span class="keyword">if</span> (!storage.name) &#123;</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        name.value = storage.name;</div><div class="line">        pwd.value = storage.value;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    btn.onclick = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">        storage.name = name.value;</div><div class="line">        storage.pwd = pwd.value;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>同样的操作：运行页面，输入值然后点击按钮查看本地存储：</p>
+<p><img src="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/h5/storage/session.png" alt="sessionStorage" title="sessionStorage"></p>
+<p>现在当你<strong>刷新页面</strong>时，在sessionStorage里仍然保留存储，但当你在新的标签页重新打开页面或者关闭浏览器再打开页面，你的sessionStorage里的值就消失了<br><img src="https://raw.githubusercontent.com/BeGoodBOY/blogback/master/h5/storage/session1.png" alt="sessiongNo" title="sessionNo"></p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p><code>localStorage</code> 和 <code>sessionStorage</code>都遵循同源策略，<code>sessionStorage</code>字面意思可以看出是会话存储，即伴随着当前会话的结束(当前页面关闭)，sessionStorage也会消失。<br>而<code>localStorage</code>是会一直存在的，除非人为操作删除它。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p><strong>目前<code>Storage</code>会自动将存储值转换为字符串形式（String）</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">localStorage.num = 1;</div><div class="line">console.log(typeof localStorage.num) <span class="comment">#输出string</span></div></pre></td></tr></table></figure>
+<p><strong>考虑倒这些，对于JSON数据我们要做些处理</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var jsonData = &#123;</div><div class="line">	name: <span class="string">'libo'</span>,</div><div class="line">	age: 18</div><div class="line">&#125;;</div><div class="line">localStorage.jsonData = JSON.stringify(jsonData);</div><div class="line">var myJsonData = JSON.parse(localStorage.jsonData);</div></pre></td></tr></table></figure>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>目前大概是这些了，想到了再回来补充</p>
+
       
 
       
@@ -186,6 +199,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -236,7 +264,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://www.lbbstc.com/photos/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.lbbstc.com/2017/09/21/localStorage，sessionStorage/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -248,6 +276,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2017/09/25/Vue/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          vue记录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/21/highJS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">读《高性能Javascript编程》的收获</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -266,6 +313,16 @@
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -288,7 +345,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
